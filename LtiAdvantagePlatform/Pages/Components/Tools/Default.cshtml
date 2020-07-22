@@ -1,0 +1,50 @@
+﻿@using AdvantagePlatform.Utility
+@model ToolsViewComponentModel
+
+<div class="row">
+    <div class="col">
+        <div class="card bg-success">
+            <h5 class="card-header">
+                Tools
+                <a class="btn text-light fas fa-edit"
+                   data-toggle="tooltip"
+                   title="Edit the tools"
+                   asp-page="./Tools/Index">
+                </a>
+            </h5>
+            <div class="card-body">
+                @if (!Model.Tools.Any())
+                {
+                    <p> No tools have been registered. See Getting Started.</p>
+                }
+                else
+                {
+                    <div class="row">
+                        @foreach (var tool in Model.Tools.OrderBy(t => t.Name))
+                        {
+                            <div class="col-auto">
+                                <div class="card bg-light mb-3 text-dark">
+                                    <h5 class="card-header">@tool.Name</h5>
+                                    <div class="card-body">
+                                        <dl>
+                                            <dt>@Html.DisplayNameFor(m => m.Tools[0].LoginUrl)</dt>
+                                            <dd>@tool.LoginUrl.IfMissingThen()</dd>
+                                            <dt>@Html.DisplayNameFor(m => m.Tools[0].LaunchUrl)</dt>
+                                            <dd>@tool.LaunchUrl.IfMissingThen()</dd>
+                                            <dt>@Html.DisplayNameFor(m => m.Tools[0].DeepLinkingLaunchUrl)</dt>
+                                            <dd>@tool.DeepLinkingLaunchUrl.IfMissingThen()</dd>
+                                            <dt>@Html.DisplayNameFor(m => m.Tools[0].ClientId)</dt>
+                                            <dd>@tool.ClientId.IfMissingThen()</dd>
+                                            <dt>@Html.DisplayNameFor(m => m.Tools[0].DeploymentId)</dt>
+                                            <dd>@tool.DeploymentId.IfMissingThen()</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

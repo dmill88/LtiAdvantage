@@ -1,0 +1,66 @@
+﻿@page
+@model PlatformModel
+@{
+    ViewData["Title"] = "Platform";
+    ViewData["ActivePage"] = "Platform";
+}
+
+<h4>@ViewData["Title"]</h4>
+<p>
+    This platform was created for you when you registered. It will be used for
+    all interactions with Tools.
+</p>
+
+<div class="row">
+    <div class="col-6">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Platform.Id"></label>
+                <input asp-for="Platform.Id" class="form-control" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform.ContactEmail"></label>
+                <input asp-for="Platform.ContactEmail" class="form-control">
+                <span asp-validation-for="Platform.ContactEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform.Description"></label>
+                <input asp-for="Platform.Description" class="form-control">
+                <span asp-validation-for="Platform.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform.Guid"></label>
+                <input asp-for="Platform.Guid" class="form-control">
+                <span asp-validation-for="Platform.Guid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform.Name"></label>
+                <input asp-for="Platform.Name" class="form-control">
+                <span asp-validation-for="Platform.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform.ProductFamilyCode"></label>
+                <input asp-for="Platform.ProductFamilyCode" class="form-control">
+                <span asp-validation-for="Platform.ProductFamilyCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform.Url"></label>
+                <input asp-for="Platform.Url" class="form-control">
+                <span asp-validation-for="Platform.Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform.Version"></label>
+                <input asp-for="Platform.Version" class="form-control">
+                <span asp-validation-for="Platform.Version" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

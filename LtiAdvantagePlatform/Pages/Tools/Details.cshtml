@@ -1,0 +1,82 @@
+﻿@page
+@using AdvantagePlatform.Utility
+@model DetailsModel
+
+@{
+    ViewData["Title"] = "Tools";
+}
+<div class="container-fluid">
+    <h4>Tool Registration Details</h4>
+    <hr />
+    <div class="row">
+        <div class="col-lg-6 mb-3">
+            <div class="card">
+                <h5 class="card-header bg-secondary text-light">
+                    Tool Settings
+                </h5>
+                <div class="card-body">
+                    <dl>
+                        <dt>@Html.DisplayNameFor(m => m.Tool.Name)</dt>
+                        <dd>@Model.Tool.Name.IfMissingThen()</dd>
+                        <dt>
+                            @Html.DisplayNameFor(m => m.Tool.LoginUrl)
+                            <tooltip asp-for="Tool.LoginUrl"></tooltip>
+                        </dt>
+                        <dd>@Model.Tool.LoginUrl.IfMissingThen()</dd>
+                        <dt>
+                            @Html.DisplayNameFor(m => m.Tool.LaunchUrl)
+                            <tooltip asp-for="Tool.LaunchUrl"></tooltip>
+                        </dt>
+                        <dd>@Model.Tool.LaunchUrl.IfMissingThen()</dd>
+                        <dt>
+                            @Html.DisplayNameFor(m => m.Tool.DeepLinkingLaunchUrl)
+                            <tooltip asp-for="Tool.DeepLinkingLaunchUrl"></tooltip>
+                        </dt>
+                        <dd>@Model.Tool.DeepLinkingLaunchUrl.IfMissingThen()</dd>
+                        <dt>
+                            @Html.DisplayNameFor(m => m.Tool.CustomProperties)
+                            <tooltip asp-for="Tool.CustomProperties"></tooltip>
+                        </dt>
+                        <dd><pre>@Model.Tool.CustomProperties.IfMissingThen()</pre></dd>
+                        <dt>@Html.DisplayNameFor(m => m.Tool.ClientId)</dt>
+                        <dd>@Model.Tool.ClientId.IfMissingThen()</dd>
+                        <dt>
+                            @Html.DisplayNameFor(m => m.Tool.PublicKey)
+                            <tooltip asp-for="Tool.PublicKey"></tooltip>
+                        </dt>
+                        <dd><pre class="key">@Model.Tool.PublicKey.IfMissingThen()</pre></dd>
+                        <dt>
+                            @Html.DisplayNameFor(m => m.Tool.DeploymentId)
+                            <tooltip asp-for="Tool.DeploymentId"></tooltip>
+                        </dt>
+                        <dd>@Model.Tool.DeploymentId.IfMissingThen()</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3">
+            <div class="card">
+                <h5 class="card-header bg-secondary text-light">
+                    Platform Settings
+                </h5>
+                <div class="card-body">
+                    <p>For reference when you register this platform in your tool.</p>
+                    <dl>
+                        <dt>@Html.DisplayNameFor(m => m.Tool.Issuer)</dt>
+                        <dd>@Model.Tool.Issuer</dd>
+                        <dt>@Html.DisplayNameFor(m => m.Tool.TokenUrl)</dt>
+                        <dd>@Model.Tool.TokenUrl</dd>
+                        <dt>@Html.DisplayNameFor(m => m.Tool.AuthorizeUrl)</dt>
+                        <dd>@Model.Tool.AuthorizeUrl</dd>
+                        <dt>@Html.DisplayNameFor(m => m.Tool.JwkSetUrl)</dt>
+                        <dd>@Model.Tool.JwkSetUrl</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Tool.Id">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</div>
